@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Highscores</title>
+    <link rel="stylesheet" href="static/css/highscores.css" />
+  </head>
+  <body>
+    <div class="highscores-container">
+      <h1 class="title">Highscores</h1>
+
+      <form method="GET" action="/highscores" class="search-form">
+        <input
+          type="text"
+          name="search"
+          placeholder="Search for a user..."
+          value="{{ search_query }}"
+        />
+        <button type="submit">Search</button>
+      </form>
+
+      <div class="table-wrapper">
+        <table class="highscores-table">
+          <thead>
+            <tr>
+              <th>Rank</th>
+              <th>Username</th>
+              <th>Highscore</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% if highscores %} {% for overall_rank, username, highscore in
+            highscores %}
+            <tr>
+              <td>{{ overall_rank }}</td>
+              <td>{{ username }}</td>
+              <td>{{ highscore }}</td>
+            </tr>
+            {% endfor %} {% else %}
+            <tr>
+              <td colspan="3">No results found</td>
+            </tr>
+            {% endif %}
+          </tbody>
+        </table>
+      </div>
+
+      <div class="pagination">
+        {% for p in range(start_page, end_page + 1) %}
+        <a
+          href="/highscores?page={{ p }}&search={{ search_query }}"
+          class="pagination-link {% if p == page %}active{% endif %}"
+          >{{ p }}</a
+        >
+        {% endfor %}
+      </div>
+      <a href="/" class="back-button">Back to Menu</a>
+    </div>
+  </body>
+</html>

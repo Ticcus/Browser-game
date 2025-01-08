@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Defense Mayhem</title>
+  <link rel="stylesheet" href="static\css\game.css">
+</head>
+<body>
+  <div id="optionButtonContainer">
+    <button id="optionButton" onclick="openOptions()">Options</button>
+  </div>
+  
+  <h1>Defense Mayhem</h1>
+  <div id="healthBarContainer">
+    <div id="healthBar">
+      <span id="hpTooltip">100%</span>
+      <div id="healthBarInner"></div>
+    </div>
+  </div>
+  <h2 id="scoreDisplay">Score: 0</h2>
+  <div id="mainContainer">
+    <div id="towerMenu">
+      <h3 id="towerName"></h3>
+      <p id="towerDetails"></p>
+      <button id="sellButton">Sell Tower</button>
+    </div>
+  
+    <div id="gameCanvasContainer">
+      <canvas id="gameCanvas" width="800" height="600"></canvas>
+    </div>
+  
+    <div id="shopContainer">
+      <h2>Shop</h2>
+      <h2 id="moneyDisplay">Money: 0</h2>
+      <button id="deselectButton">Exit tower build mode</button>
+  
+      {% for tower in towers %}
+        <button id="{{ tower.type }}TowerButton" onclick="selectTower('{{ tower.type }}')">
+          {{ tower.type.capitalize() }} Tower - ${{ tower.cost }}
+        </button>
+      {% endfor %}
+    </div>
+  </div>
+  
+  <div id="optionsModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeOptions()">&times;</span>
+      <h2>Options</h2>
+      <div class="options">
+        <label for="musicVolumeSlider">
+          <div class="volume-control">
+            <img 
+              id="musicToggleIcon" 
+              src="static/images/music_muted.png" 
+              alt="Music Toggle" 
+              onclick="toggleMusicMute()"
+            >
+            <input 
+              type="range" 
+              id="musicVolumeSlider" 
+              min="0" 
+              max="100" 
+              value="50" 
+              step="1" 
+              oninput="updateMusicVolume()"
+            >
+          </div>
+          
+        <br><br>
+        <button id="endRunButton" onclick="endRun()">End Run</button>
+      </div>
+    </div>
+  </div>
+  
+  <audio id="backgroundMusic" loop>
+    <source src="static/audio/music.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+  
+<div id="gameOverScreen" class="game-over-screen" style="display: none;">
+  <div class="game-over-content">
+    <h1>Game Over</h1>
+    <p>Your final score: <span id="finalScore">0</span></p>
+    <div class="game-over-actions">
+      <button id="restartGameButton" class="game-over-btn">Restart</button>
+      <button id="backToMenuButton" class="game-over-btn secondary">Back to Menu</button>
+    </div>
+  </div>
+</div>
+
+
+  <script src="static\js\game.js"></script>
+</body>
+</html>

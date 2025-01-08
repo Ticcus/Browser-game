@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Management - Tower Defense Game</title>
+    <link rel="stylesheet" href="static/css/user_management.css" />
+  </head>
+  <body>
+    <div class="back-button-container">
+      <a href="/" id="back-button" class="back-button">← Back</a>
+    </div>
+    <div class="user-management">
+      <h1>User Management</h1>
+      <input
+        type="text"
+        id="search-bar"
+        class="search-bar"
+        placeholder="Search users..."
+      />
+      <div class="filters">
+        <button id="filter-admin" class="filter-btn">
+          Show Admin Accounts
+        </button>
+        <button id="filter-moderator" class="filter-btn">
+          Show Moderator Accounts
+        </button>
+        <button id="filter-banned" class="filter-btn">
+          Show Banned Accounts
+        </button>
+        <button id="filter-players" class="filter-btn">
+          Show Regular Players
+        </button>
+        <button id="filter-all" class="filter-btn active">
+          Show All Accounts
+        </button>
+      </div>
+      <div class="user-list" id="user-list"></div>
+    </div>
+
+    <script src="static/js/user_management_moderator.js"></script>
+  </body>
+</html>

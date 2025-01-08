@@ -1,0 +1,26 @@
+[
+  {
+    "type": "Tier1",
+    "range": 100,
+    "damage": 35,
+    "color": "#a600ff",
+    "cooldown": 50,
+    "cost": 50
+  },
+  {
+    "type": "Tier2",
+    "range": 125,
+    "damage": 40,
+    "color": "black",
+    "cooldown": 50,
+    "cost": 100
+  },
+  {
+    "type": "Tier3",
+    "range": 150,
+    "damage": 50,
+    "color": "red",
+    "cooldown": 50,
+    "cost": 150
+  }
+]

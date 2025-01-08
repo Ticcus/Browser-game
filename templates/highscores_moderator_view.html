@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Highscores Management</title>
+    <link rel="stylesheet" href="static/css/highscores.css" />
+  </head>
+  <body>
+    <div class="highscores-container">
+      <h1 class="title">Highscores Management</h1>
+
+      <form method="GET" action="/highscores_management" class="search-form">
+        <input
+          type="text"
+          name="search"
+          placeholder="Search for a user..."
+          value="{{ search_query }}"
+        />
+        <button type="submit">Search</button>
+      </form>
+
+      <div class="table-wrapper">
+        <table class="highscores-table">
+          <thead>
+            <tr>
+              <th>Rank</th>
+              <th>Username</th>
+              <th>Highscore</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% if highscores %} {% for overall_rank, username, highscore in
+            highscores %}
+            <tr>
+              <td>{{ overall_rank }}</td>
+              <td>{{ username }}</td>
+              <td>{{ highscore }}</td>
+              <td>
+                <button class="delete-btn" data-username="{{ username }}">
+                  Delete
+                </button>
+              </td>
+            </tr>
+            {% endfor %} {% else %}
+            <tr>
+              <td colspan="4">No results found</td>
+            </tr>
+            {% endif %}
+          </tbody>
+        </table>
+      </div>
+
+      <div class="pagination">
+        {% for p in range(start_page, end_page + 1) %}
+        <a
+          href="/highscores?page={{ p }}&search={{ search_query }}"
+          class="pagination-link {% if p == page %}active{% endif %}"
+          >{{ p }}</a
+        >
+        {% endfor %}
+      </div>
+      <a href="/" class="back-button">Back to Menu</a>
+    </div>
+
+    <div id="confirmModal" class="modal" style="display: none">
+      <div class="modal-content">
+        <h3 id="confirmMessage">
+          Are you sure you want to delete this highscore?
+        </h3>
+        <div class="form-actions">
+          <button id="confirmYes" class="modal-btn">Yes</button>
+          <button id="confirmNo" class="modal-btn secondary">No</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="static/js/highscores_management.js"></script>
+  </body>
+</html>

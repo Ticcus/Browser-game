@@ -1,0 +1,96 @@
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #1e1e2f;
+  color: #ffffff;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+h1 {
+  margin-bottom: 20px;
+  color: #00d4ff;
+}
+
+.difficulty-container {
+  display: flex;
+  gap: 20px;
+}
+
+.difficulty-btn {
+  padding: 15px 25px;
+  font-size: 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  font-weight: bold;
+}
+
+.difficulty-btn:hover {
+  transform: scale(1.05);
+}
+
+.difficulty-btn.easy {
+  background-color: #00d4ff;
+  color: #1e1e2f;
+}
+
+.difficulty-btn.easy:hover {
+  background-color: #00a1c6;
+}
+
+.difficulty-btn.medium {
+  background-color: #a36eff;
+  color: #ffffff;
+}
+
+.difficulty-btn.medium:hover {
+  background-color: #8252cc;
+}
+
+.difficulty-btn.hard {
+  background-color: #ff6f61;
+  color: #ffffff;
+}
+
+.difficulty-btn.hard:hover {
+  background-color: #cc564d;
+}
+
+.difficulty-btn.extreme {
+  background-color: #343a40;
+  color: #ffffff;
+}
+
+.difficulty-btn.extreme:hover {
+  background-color: #23272b;
+}
+
+.back-button-container {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+}
+
+.back-button {
+  padding: 8px 12px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  background-color: #00d4ff;
+  color: #1e1e2f;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+  background-color: #00a1c6;
+}

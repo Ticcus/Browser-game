@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Defense Mayhem</title>
+    <link rel="stylesheet" href="static/css/styles.css" />
+  </head>
+  <body>
+    <div id="username-display" class="username-display" style="display: none">
+      Logged in as: <span id="logged-in-username"></span>
+    </div>
+
+    <div class="start-container">
+      <h1 class="title">Defense Mayhem</h1>
+      <p class="description">
+        "Brace yourself for an endless onslaught of enemies!"
+      </p>
+      <a
+        href="/game_dificulty"
+        id="start-gamef-btn"
+        class="start-button"
+        style="display: {% if not ban and logged_in %} block {% else %} none {% endif %};"
+        >Start Game</a
+      >
+      <p
+        id="banned-msg"
+        style="display: {% if ban %} block {% else %} none {% endif %}; color: #ff6f61;"
+      >
+        Your account is banned. You cannot play the game.
+      </p>
+      <p id="login-required-msg" style="display: none; color: #ff6f61">
+        You must log in to start the game.
+      </p>
+      <a
+        href="/user_management"
+        id="manage-users-admin-btn"
+        class="start-button"
+        style="display: {% if admin or moderator %} block {% else %} none {% endif %};"
+      >
+        Manage Users
+      </a>
+      <a href="/highscores" class="start-button">Highscores</a>
+      <button
+        id="login-register-btn"
+        class="start-button"
+        style="display: {% if not logged_in %} block {% else %} none {% endif %};"
+      >
+        Login/Register
+      </button>
+      <button
+        id="logout-btn"
+        class="start-button"
+        style="display: {% if logged_in %} block {% else %} none {% endif %};"
+      >
+        Logout
+      </button>
+    </div>
+    <div id="loginRegisterModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Login or Register</h2>
+        <form id="loginRegisterForm">
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input
+              type="text"
+              id="username"
+              name="username"
+              placeholder="Enter your username"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Enter your password"
+              required
+            />
+          </div>
+          <div class="form-actions">
+            <button type="submit" id="loginBtn" class="modal-btn">Login</button>
+            <button type="button" id="registerBtn" class="modal-btn secondary">
+              Register
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div id="alertBox" class="alert-box" style="display: none">
+      <span id="alertMessage"></span>
+      <button id="closeAlert" class="alert-close">&times;</button>
+    </div>
+
+    <script src="static/js/menu.js"></script>
+  </body>
+</html>

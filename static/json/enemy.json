@@ -1,0 +1,29 @@
+[
+  {
+    "type": "basic",
+    "health": 100,
+    "speed": 1,
+    "reward": 10,
+    "scoreValue": 10,
+    "difficultyFactor": 1,
+    "color": "red"
+  },
+  {
+    "type": "fast",
+    "health": 50,
+    "speed": 2,
+    "reward": 20,
+    "scoreValue": 20,
+    "difficultyFactor": 2,
+    "color": "blue"
+  },
+  {
+    "type": "tank",
+    "health": 200,
+    "speed": 0.5,
+    "reward": 50,
+    "scoreValue": 50,
+    "difficultyFactor": 3,
+    "color": "green"
+  }
+]
